@@ -28,10 +28,11 @@ https://documenter.getpostman.com/view/17588262/UVsFyUES
 
 ### ENDPOINTS
 
-[X]Criar um médico onde deve haver no mínimo duas especialidades;
-    [X]Retornar ID do médico ao criá-lo.
+[X]Criar um médico onde deve haver no mínimo duas especialidades; "/medic/create"
 
+    Retorna ID do médico ao criá-lo.
     REGRAS:
+    
     [X]Nome do médico com no máximo 120 caractéres;
 
     [X]CRM: somente números com no máximo 7 caracteres;
@@ -47,11 +48,11 @@ https://documenter.getpostman.com/view/17588262/UVsFyUES
     Irá retornar a ID do médico para um melhor uso nos outros endpoints.
 
 
-[X]Selecionar médico, voltando o médico com um array de suas especialiades:
+[X]Selecionar médico, voltando o médico com um array de suas especialiades: "/medic/:id"
     É necessário fornecer via params a ID do médico. Terá como retorno todos os dados daquele médico para poder ser manipulado.
 
-[X]Atualizar médico:
+[X]Atualizar médico: "/medic/:id/update"
     É necessário fornecer via params a ID do médico e pelo body quais serão as mudanças.
 
-[X]Deletar médico:
+[X]Deletar médico: "/medic/delete/:id"
     É necessário fornecer via params a ID do médico para que o mesmo seja deletado. Caso não haja médico com essa ID, será retornado o devido erro.# GCBInvestimentosBackJR
