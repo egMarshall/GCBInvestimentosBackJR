@@ -41,7 +41,9 @@ https://documenter.getpostman.com/view/17588262/UVsFyUES
 
     [X]Telefone celular: somente números;
 
-    [ ]CEP: somente números (Ao cadastrar o CEP, deve ser feita uma reqisição via XHR para a API dos correios e retornar todos os dados de endereço do cliente);
+    [X]CEP: somente números (Ao cadastrar o CEP, deve ser feita uma reqisição via XHR para a API dos correios e retornar todos os dados de endereço do cliente);
+        Foi feito via axios, retornando o endereço completo do cep cadastrado utilizando a API da VIACEP(https://viacep.com.br)
+
 
     [X]Especialidade médica (mínimo de duas especialidades).
 
@@ -51,7 +53,7 @@ https://documenter.getpostman.com/view/17588262/UVsFyUES
 [X]Selecionar médico, voltando o médico com um array de suas especialiades: "/medic/:id"
     É necessário fornecer via params a ID do médico. Terá como retorno todos os dados daquele médico para poder ser manipulado.
 
-[X]Atualizar médico: "/medic/:id/update"
+[X]Atualizar médico: "/medic/update/:id"
     É necessário fornecer via params a ID do médico e pelo body quais serão as mudanças.
 
 [X]Deletar médico: "/medic/delete/:id"

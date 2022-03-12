@@ -25,6 +25,10 @@ export class MedicBusiness {
             throw new InvalidInputError("CRM must contain at most 7 characters.")
         }
 
+        if(input.cep.toString().length !== 8) {
+            throw new InvalidInputError("CEP must be valid!")
+        }
+
         if (input.especiality.length < 2) {
             throw new InvalidInputError("There must be only two especialities.")
         }
@@ -35,9 +39,7 @@ export class MedicBusiness {
                 .trim()
                 .normalize("NFD")
                 .replace(/[\u0300-\u036f]/g, "")
-                .replace(" ", "")
-                .replace(" ", "")
-                // .replace(/\s/g, '') A TESTAR
+                .replace(/\s/g, '')
                 switch(treatedEspeciality) {
                     case "alergologia":
                         return Especialities.ALERGOLOLOGIA
@@ -67,7 +69,7 @@ export class MedicBusiness {
                 crm: input.crm,
                 landline: input.landline,
                 cellPhone: input.cellPhone,
-                cep: input.cep
+                address: input.cep
             })
         )
 
@@ -91,7 +93,6 @@ export class MedicBusiness {
         if(!input) {
             throw new InvalidInputError("Invalid input to getMedicById!")
         }
-
         return await this.MedicDatabase.getMedicById(input)
     }
 
@@ -123,7 +124,7 @@ export class MedicBusiness {
                 crm: input.crm,
                 landline: input.landline,
                 cellPhone: input.cellPhone,
-                cep: input.cep
+                address: input.cep
             })
         )
 

@@ -50,6 +50,7 @@ export class MedicController {
 
             const medic = await medicBusiness.getMedicById(id)
 
+
             res.status(200).send(medic)
         } catch (error) {
             if (error instanceof Error) {
