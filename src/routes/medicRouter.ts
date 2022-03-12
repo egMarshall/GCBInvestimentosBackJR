@@ -6,5 +6,5 @@ const medicController = new MedicController()
 
 medicRouter.post("/create", medicController.create)
 medicRouter.get("/:id", medicController.getById)
-medicRouter.put("/:id/update", medicController.updateById)
+medicRouter.put("/update/:id", medicController.updateById)
 medicRouter.delete("/delete/:id", medicController.deleteById)

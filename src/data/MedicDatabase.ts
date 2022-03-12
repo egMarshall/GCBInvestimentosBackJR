@@ -1,6 +1,7 @@
 import { NotFoundError } from "../error/NotFoundError"
 import { Medic } from "../model/Medic"
 import { BaseDatabase } from "./BaseDatabase"
+import axios from "axios"
 
 export class MedicDatabase extends BaseDatabase {
 
@@ -53,13 +54,19 @@ export class MedicDatabase extends BaseDatabase {
                 especialities: []
             }
 
+            const medicAddress =  await axios(`https://viacep.com.br/ws/${result[0][0].medic_cep}/json`)
+            
+            if(!medicAddress.data) {
+                throw new NotFoundError(`Unable to find medic address!`)
+            }
+
             for (let m of result[0]) {
                 medic.id = m.medic_id
                 medic.name = m.medic_name
                 medic.crm = m.medic_crm
                 medic.landline = m.medic_landline
                 medic.cellPhone = m.medic_cellPhone
-                medic.cep = m.medic_cep
+                medic.address = medicAddress.data
                 medic.especialities.push(m.medic_especialities)
             }
 

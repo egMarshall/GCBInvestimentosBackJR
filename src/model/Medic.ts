@@ -1,4 +1,3 @@
-import { InvalidInputError } from "../error/InvalidInputError"
 import { Especialities, Especiality } from "./Especialities"
 
 export class Medic {
@@ -8,7 +7,7 @@ export class Medic {
         private crm: number,
         private landline: number,
         private cellPhone: number,
-        private cep: string,
+        private address: object,
         private especialities: Especialities[]
     ){}
 
@@ -32,8 +31,8 @@ export class Medic {
         return this.cellPhone
     }
 
-    getCep():string {
-        return this.cep
+    getCep():object {
+        return this.address
     }
 
     getEspecialities():Especialities[] {
@@ -47,7 +46,7 @@ export class Medic {
             medic.crm,
             medic.landline,
             medic.cellPhone,
-            medic.cep,
+            medic.address,
             medic.especialities
         )
     }
