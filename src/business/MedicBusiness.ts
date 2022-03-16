@@ -30,7 +30,7 @@ export class MedicBusiness {
         }
 
         if (input.especiality.length < 2) {
-            throw new InvalidInputError("There must be only two especialities.")
+            throw new InvalidInputError("There must at least two especialities.")
         }
 
         const especialityArrayTreated = input.especiality.map((especiality) => {
@@ -99,10 +99,6 @@ export class MedicBusiness {
     async updateMedic(id: string, input: MedicUpdateInputDTO) {
         if(!id) {
             throw new InvalidInputError("Invalid ID to updateMedic!")
-        }
-        
-        if(!input) {
-            throw new InvalidInputError("Invalid input to updateMedic!")
         }
 
         if(!input.name && !input.crm && !input.cellPhone && !input.landline && !input.cellPhone && !input.cep && !input.especiality) {
@@ -178,14 +174,10 @@ export class MedicBusiness {
 
     async deleteMedicById(input: string) {
         if(!input) {
-            throw new InvalidInputError("Invalid input to getMedicById!")
+            throw new InvalidInputError("You must provide an ID to delete!")
         }
 
-        const medic = await this.MedicDatabase.getMedicById(input)
-
-        if(medic.getId() === undefined) {
-            throw new NotFoundError("There is no Medic with this ID to delete!")
-        }
+        await this.MedicDatabase.getMedicById(input)
 
         await this.MedicDatabase.deleteMedicById(input)
     }
