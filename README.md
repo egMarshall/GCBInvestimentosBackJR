@@ -15,6 +15,8 @@
     As especialidades podem ser inseridas com ou sem acentuação, espaços e letras maiúsculas ou minúsculas.
 
     Possui o script "migrations" para criar e popular as tabelas necessárias para o uso.
+    
+    Testes foram feitos com o Jest para todas as verificações da camada Business. Podem ser acessados através do script "test"
 
 
 ### DOCUMENTAÇÃO DO POSTMAN
