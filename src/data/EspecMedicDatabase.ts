@@ -1,5 +1,4 @@
 import { NotFoundError } from "../error/NotFoundError"
-import { Especiality } from "../model/Especialities"
 import { BaseDatabase } from "./BaseDatabase"
 
 export class EspecMedicDatabase extends BaseDatabase {

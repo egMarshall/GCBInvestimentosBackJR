@@ -1,4 +1,4 @@
-import { Especialities, Especiality } from "./Especialities"
+import { Especialities } from "./Especialities"
 
 export class Medic {
     constructor(
